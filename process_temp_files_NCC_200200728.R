@@ -11,7 +11,7 @@ library(dplyr)
 library(pals)
 library(ggplot2)
 
-path <- "/Users/jonathanarmstrong/Dropbox/For_JA"
+path <- "."
 
 basin <- c("ASO", "ENT", "JDR", "LEM", "LOC", "LOL", "MET", "PAH", "PAN", "SFS", "TUC", "UGR", "USL", "WEN")
 year <- c("2011", "2012", "2013", "2014", "2015", "2016")
@@ -518,7 +518,7 @@ all.dat <- cbind(all.dat, SCP100.UvB)
 
 
 
-#saveRDS(all.dat, file.path(path, "all.temp.growth.spatial.GPPR.RData"))
+saveRDS(all.dat, file.path(path, "all.temp.growth.spatial.GPPR.RData"))
 
 #all.dat <- readRDS(file.path(path, "all.temp.growth.spatial.GPPR.RData"))
 
@@ -1060,6 +1060,11 @@ adf[,14]<-apply(adf[,4:11],1,sum)
 names(adf)[12]<-"lenlo"
 names(adf)[13]<-"lenhi"
 names(adf)[14]<-"lenall"
+
+saveRDS(adf, file.path(path, "summary.a.basin.year.week.GPPR.RData"))
+
+#adf <- readRDS(file.path(path, "summary.a.basin.year.week.GPPR.RData"))
+
 
 
 ###JA: Code to plot area of thermally optimal habitat by stream order, over the year
